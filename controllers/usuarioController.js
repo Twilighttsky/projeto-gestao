@@ -58,7 +58,7 @@ class UsuarioController {
     const { nome, email, senha } = req.body;
     const id = req.params.id;
     
-    // Validações básicas
+ 
     if (!nome || nome.length < 3) {
       return res.status(400).send('Nome deve ter no mínimo 3 caracteres');
     }
