@@ -55,7 +55,6 @@ class ProdutoController {
     const { nome, preco, estoque, descricao } = req.body;
     const id = req.params.id;
     
-    // Validações
     if (!nome || nome.length < 3) {
       return res.status(400).send('Nome do produto deve ter no mínimo 3 caracteres');
     }
