@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+  <h2>Lista de Produtos</h2>
+  <a href="/produtos/novo" class="btn-novo">Novo Produto</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Estoque</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% produtos.forEach(produto => { %>
+        <tr>
+          <td><%= produto.id %></td>
+          <td><%= produto.nome %></td>
+          <td>R$ <%= produto.preco.toFixed(2) %></td>
+          <td><%= produto.estoque %></td>
+          <td>
+            <a href="/produtos/<%= produto.id %>" class="btn-detalhes">Detalhes</a>
+            <form action="/produtos/<%= produto.id %>?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit" class="btn-excluir">Excluir</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<%- include('../partials/footer') %>
